@@ -23,21 +23,20 @@ class BowlingGameTests: XCTestCase {
         super.tearDown()
     }
 
-    func testGutterGame() {
-        let n = 20
-        let pins = 0
-        for _ in 1...n {
+    private func rollMany(pins: Int, times: Int) {
+        for _ in 1...times {
             game.roll(pins)
         }
+    }
+
+    func testGutterGame() {
+        rollMany(pins: 0, times: 20)
 
         XCTAssertEqual(game.score(), 0)
     }
 
     func testAllOnes() {
-        for _ in 1...20 {
-            game.roll(1)
-        }
-
+        rollMany(pins: 1, times: 20)
         XCTAssertEqual(game.score(), 20)
     }
     
