@@ -21,8 +21,13 @@ class Game {
         var score = 0
         var roll = 0
         for _ in 1...10 {
+            // strike
+            if rolls[roll] == 10 {
+                score += 10 + rolls[roll + 1] + rolls[roll + 2]
+                roll += 1
+            }
             // spare
-            if isSpare(roll) {
+            else if isSpare(roll) {
                 score += 10 + rolls[roll + 2]
                 roll += 2
             } else {
