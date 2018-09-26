@@ -44,6 +44,10 @@ class BowlingGameTests: XCTestCase {
         game.roll(5)
     }
 
+    private func rollStrike() {
+        game.roll(10)
+    }
+
     func testOneSpare() {
         rollSpare()
         game.roll(3)
@@ -52,7 +56,7 @@ class BowlingGameTests: XCTestCase {
     }
 
     func testOneStrike() {
-        game.roll(10) // strike
+        rollStrike()
         game.roll(3)
         game.roll(4)
         rollMany(pins: 0, times: 16)
